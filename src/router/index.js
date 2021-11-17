@@ -28,7 +28,12 @@ const routes = [
       {
         path: "crops",
         name: "crops",
-        component: () => import("@/components/app/crops/Index"),
+        component: () => import("@/components/app/crops/Index")
+      },
+      {
+        path: "add-crop",
+        name: "add-crop",
+        component: () => import("@/components/app/crops/Add")
       }
     ]
   }
