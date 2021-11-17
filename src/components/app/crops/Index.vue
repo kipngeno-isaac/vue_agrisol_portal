@@ -1,42 +1,8 @@
 <template>
   <div>
-    <v-card flat>
-      <v-card-title>
-        Crops
-        <v-spacer></v-spacer>
-      </v-card-title>
-    </v-card>
-    <div v-for="crop in crops" :key="crop.id">
-      <v-card class="mx-auto" max-width="80%">
-        <v-img
-          :src="crop.links"
-          height="200px"
-        ></v-img>
-        <v-card-title> {{ crop.name }} </v-card-title>
-
-        <v-card-subtitle> {{ crop.description }} </v-card-subtitle>
-
-        <v-card-actions>
-          <v-btn color="orange lighten-2" text> Explore </v-btn>
-
-          <v-spacer></v-spacer>
-
-          <v-btn icon @click="show = !show">
-            <v-icon>{{ show ? "mdi-chevron-up" : "mdi-chevron-down" }}</v-icon>
-          </v-btn>
-        </v-card-actions>
-
-        <v-expand-transition>
-          <div v-show="show">
-            <v-divider></v-divider>
-
-            <v-card-text>
-            </v-card-text>
-          </div>
-        </v-expand-transition>
-      </v-card>
-      <v-divider></v-divider>
-    </div>
+    <v-container fluid>
+      <v-data-table :headers="headers" :items="crops" :items-per-page="5" class="elevation-1"></v-data-table>
+    </v-container>
   </div>
 </template>
 
@@ -48,8 +14,41 @@ export default {
 
   data() {
     return {
-      crops: [],
-      show: false,
+      headers: [
+        {
+          text: "Crop",
+          align: "start",
+          sortable: false,
+          value: "name"
+        },
+        { text: "Duration (Months)", value: "duration" },
+        { text: "Best Months", value: "best_months" },
+        { text: "Description", value: "description" },
+        { text: "Date ", value: "date_created" }
+      ],
+      crops: [
+        {
+          name: "Maize",
+          duration: 7,
+          description: "Lorem kmkg",
+          best_months: "",
+          created_at: ""
+        },
+        {
+          name: "Maize",
+          duration: 7,
+          description: "Lorem kmkg",
+          best_months: "",
+          created_at: ""
+        },
+        {
+          name: "Maize",
+          duration: 7,
+          description: "Lorem kmkg",
+          best_months: "",
+          created_at: ""
+        }
+      ]
     };
   },
 
@@ -58,12 +57,15 @@ export default {
   methods: {},
 
   mounted() {
-    axios.get(`https://adonis-agrisol-api.herokuapp.com/api/crops`).then((response) => {
-      console.log(response.data);
-      if (response.status) {
-        this.crops = response.data.data;
-      }
-    });
-  },
+    axios
+      .get(`https://adonis-agrisol-api.herokuapp.com/api/crops`)
+      .then(response => {
+        console.log(response.data);
+        if (response.status) {
+          this.crops = response.data.data;
+          console.log("crops :", this.crops);
+        }
+      });
+  }
 };
 </script>
