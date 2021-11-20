@@ -1,7 +1,13 @@
 <template>
   <div>
     <v-container fluid>
-      <v-data-table :headers="headers" :items="crops" :items-per-page="5" class="elevation-1"></v-data-table>
+      <div>
+        <v-card v-for="crop in crops" :key="crop.id" class="my-md-5" :to="`/crops/${crop.id}`">
+          <v-card-title>{{crop.name}}</v-card-title>
+          <v-card-subtitle>{{new Date(crop.created_at).toDateString("en-US")}}</v-card-subtitle>
+          <v-card-text>{{crop.description}}</v-card-text>
+        </v-card>
+      </div>
     </v-container>
   </div>
 </template>
