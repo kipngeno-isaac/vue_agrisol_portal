@@ -3,8 +3,8 @@
     <v-navigation-drawer v-model="drawer" class="light-green darken-1" app>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title class="text-h6 white--text"> AgriSol </v-list-item-title>
-          <v-list-item-subtitle class="white--text"> farmspace </v-list-item-subtitle>
+          <v-list-item-title class="text-h6 white--text">AgriSol</v-list-item-title>
+          <v-list-item-subtitle class="white--text">farmspace</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -24,9 +24,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block>
-            Logout
-          </v-btn>
+          <v-btn block>Logout</v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -51,7 +49,8 @@ export default {
       { title: "Crops", icon: "mdi-view-dashboard", to: "/crops" },
       { title: "Produce", icon: "mdi-image", to: "/produce" },
       { title: "Prices", icon: "mdi-help-box", to: "/prices" },
-    ],
-  }),
+      { title: "Market", icon: "mdi-help-box", to: "/market" }
+    ]
+  })
 };
 </script>

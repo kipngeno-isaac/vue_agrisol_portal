@@ -44,6 +44,11 @@ const routes = [
         path: "produce",
         name: "produce",
         component: () => import("@/components/app/produce/Index")
+      },
+      {
+        path: "market",
+        name: "market",
+        component: () => import("@/components/app/market/Index")
       }
     ]
   }
