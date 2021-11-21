@@ -39,6 +39,11 @@ const routes = [
         path: "crops/:id",
         name: "show-crop",
         component: () => import("@/components/app/crops/Show")
+      },
+      {
+        path: "produce",
+        name: "produce",
+        component: () => import("@/components/app/produce/Index")
       }
     ]
   }
