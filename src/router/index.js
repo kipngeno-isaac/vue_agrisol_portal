@@ -34,6 +34,11 @@ const routes = [
         path: "add-crop",
         name: "add-crop",
         component: () => import("@/components/app/crops/Add")
+      },
+      {
+        path: "crops/:id",
+        name: "show-crop",
+        component: () => import("@/components/app/crops/Show")
       }
     ]
   }
