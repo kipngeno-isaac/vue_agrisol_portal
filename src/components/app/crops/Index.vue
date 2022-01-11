@@ -7,7 +7,7 @@
           <div v-if="crop.links !== null">
           <iframe
             width="100%"
-            min-height="300"
+            min-height="400"
             :src="`https://www.youtube.com/embed/${crop.links}`"
             title="YouTube video player"
             frameborder="0"

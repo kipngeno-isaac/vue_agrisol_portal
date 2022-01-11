@@ -18,6 +18,16 @@
       <v-card-actions class="px-4 pb-5">
         <v-btn type="submit" color="blue" x-large block dark>Login</v-btn>
       </v-card-actions>
+      <v-card-actions>
+      <v-btn
+        color="deep-blue lighten-2"
+        text
+        @click="register()"
+      >
+        Create an account
+      </v-btn>
+    </v-card-actions>
+
     </v-card>
   </form>
 </template>
@@ -33,7 +43,9 @@ export default {
     };
   },
 
-  computed: {},
+  computed: {
+    
+  },
 
   methods: {
     login() {
@@ -49,6 +61,9 @@ export default {
             this.$router.push({ name: "crops" });
           }
         });
+    },
+    register(){
+      return this.$router.push({name:"register"})
     }
   }
 };

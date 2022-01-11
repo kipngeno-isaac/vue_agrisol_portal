@@ -24,7 +24,7 @@
 
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block>Logout</v-btn>
+          <v-btn block to="/login" link>Logout</v-btn>
         </div>
       </template>
     </v-navigation-drawer>
@@ -45,6 +45,7 @@
 export default {
   data: () => ({
     drawer: null,
+    logout:"/auth/login",
     items: [
       { title: "Crops", icon: "mdi-view-dashboard", to: "/crops" },
       { title: "Produce", icon: "mdi-image", to: "/produce" },

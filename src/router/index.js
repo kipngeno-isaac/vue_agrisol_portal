@@ -6,16 +6,16 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/auth',
-    name: 'AuthLayout',
+    name: 'auth',
     component: () => import('@/views/layouts/Authentication'),
     children: [
       {
-        path: "register",
+        path: "/register",
         name: "register",
         component: () => import("@/components/auth/Register"),
       },
       {
-        path: "login",
+        path: "/login",
         name: "login",
         component: () => import("@/components/auth/Login"),
       }
