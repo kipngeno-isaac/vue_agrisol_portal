@@ -10,7 +10,7 @@
             <v-text-field outlined persistent-hint label="Duration" v-model="cropData.duration"></v-text-field>
             <v-textarea outlined persistent-hint label="Description" v-model="cropData.description"></v-textarea>
 
-            <v-text-field outlined persistent-hint label="Image Link" v-model="cropData.link"></v-text-field>
+            <v-text-field outlined persistent-hint label="Video Id" v-model="cropData.links"></v-text-field>
           </v-card-text>
 
           <v-card-actions class="px-4 pb-5">
@@ -22,7 +22,6 @@
   </div>
 </template>
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -30,7 +29,7 @@ export default {
         name: "",
         duration: "",
         description: "",
-        link: ""
+        links: ""
       }
     };
   },
@@ -39,17 +38,13 @@ export default {
 
   methods: {
     save() {
-      axios
-        .post(
-          `https://adonis-agrisol-api.herokuapp.com/api/crops`,
-          this.userData,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            }
+      window.axios
+        .post(`crops`, this.cropData, {
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
           }
-        )
+        })
         .then(({ data }) => {
           console.log(data);
           if (data.status) {

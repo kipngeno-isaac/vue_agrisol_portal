@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import axios from "axios";
 
 export default {
   components: {},
@@ -56,15 +55,13 @@ export default {
   methods: {},
 
   mounted() {
-    axios
-      .get(`https://adonis-agrisol-api.herokuapp.com/api/market`)
-      .then(response => {
-        console.log(response.data);
-        if (response.status) {
-          this.produce = response.data.data;
-          console.log("produce :", this.produce);
-        }
-      });
+    window.axios.get(`market`).then(response => {
+      console.log(response.data);
+      if (response.status) {
+        this.produce = response.data.data;
+        console.log("produce :", this.produce);
+      }
+    });
   }
 };
 </script>

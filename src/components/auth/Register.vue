@@ -1,52 +1,28 @@
 <template>
   <form @submit.prevent="register()">
     <v-card>
-      <v-card-title> Sign Up here </v-card-title>
+      <v-card-title>Sign Up here</v-card-title>
 
       <v-card-text>
-        <v-text-field
-          outlined
-          label="Full name"
-          v-model="userData.name"
-        ></v-text-field>
+        <v-text-field outlined label="Full name" v-model="userData.name"></v-text-field>
 
-        <v-text-field
-          outlined
-          label="Email address"
-          v-model="userData.email"
-        ></v-text-field>
+        <v-text-field outlined label="Email address" v-model="userData.email"></v-text-field>
 
-        <v-text-field
-          outlined
-          label="Phone"
-          v-model="userData.phone"
-        ></v-text-field>
+        <v-text-field outlined label="Phone" v-model="userData.phone"></v-text-field>
 
-        <v-text-field
-          outlined
-          label="County"
-          v-model="userData.county"
-        ></v-text-field>
+        <v-text-field outlined label="County" v-model="userData.county"></v-text-field>
 
-        <v-text-field
-          outlined
-          label="Password"
-          type="password"
-          v-model="userData.password"
-        ></v-text-field>
+        <v-text-field outlined label="Password" type="password" v-model="userData.password"></v-text-field>
       </v-card-text>
 
       <v-card-actions class="px-4 pb-5">
-        <v-btn type="submit" color="blue" x-large block dark>
-          Register User
-        </v-btn>
+        <v-btn type="submit" color="blue" x-large block dark>Register User</v-btn>
       </v-card-actions>
     </v-card>
   </form>
 </template>
 
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -55,21 +31,19 @@ export default {
         email: "",
         phone: "",
         county: "",
-        password: "",
-      },
+        password: ""
+      }
     };
   },
 
   methods: {
     register() {
       // console.log(this.userData);
-      axios
-        .post(`https://adonis-agrisol-api.herokuapp.com/api/auth/register`, this.userData, {
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json",
-          },
-        })
+      window.axios
+        .post(
+          `https://adonis-agrisol-api.herokuapp.com/api/auth/register`,
+          this.userData
+        )
         .then(({ data }) => {
           console.log(data);
           if (data.status) {
@@ -77,7 +51,7 @@ export default {
             this.$router.push({ name: "crops" });
           }
         });
-    },
-  },
+    }
+  }
 };
 </script>

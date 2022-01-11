@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import axios from "axios";
 export default {
   data() {
     return {
@@ -38,16 +37,10 @@ export default {
 
   methods: {
     login() {
-      axios
+      window.axios
         .post(
           `https://adonis-agrisol-api.herokuapp.com/api/auth/login`,
-          this.userData,
-          {
-            headers: {
-              Accept: "application/json",
-              "Content-Type": "application/json"
-            }
-          }
+          this.userData
         )
         .then(({ data }) => {
           console.log(data);

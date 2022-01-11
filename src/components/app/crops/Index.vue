@@ -1,20 +1,30 @@
 <template>
   <div>
     <v-container fluid>
-      <div>
         <v-card v-for="crop in crops" :key="crop.id" class="my-md-5" :to="`/crops/${crop.id}`">
           <v-card-title>{{crop.name}}</v-card-title>
           <v-card-subtitle>{{new Date(crop.created_at).toDateString("en-US")}}</v-card-subtitle>
+          <div v-if="crop.links !== null">
+          <iframe
+            width="100%"
+            min-height="300"
+            :src="`https://www.youtube.com/embed/${crop.links}`"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </div>
           <v-card-text>{{crop.description}}</v-card-text>
         </v-card>
-      </div>
+      <v-btn fab dark large bottom right color="red" to="/add-crop">
+        <v-icon>mdi-plus</v-icon>
+      </v-btn>
     </v-container>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
 export default {
   components: {},
 
@@ -63,15 +73,13 @@ export default {
   methods: {},
 
   mounted() {
-    axios
-      .get(`https://adonis-agrisol-api.herokuapp.com/api/crops`)
-      .then(response => {
-        console.log(response.data);
-        if (response.status) {
-          this.crops = response.data.data;
-          console.log("crops :", this.crops);
-        }
-      });
+    window.axios.get(`crops`).then(response => {
+      console.log(response.data);
+      if (response.status) {
+        this.crops = response.data.data;
+        console.log("crops :", this.crops);
+      }
+    });
   }
 };
 </script>
