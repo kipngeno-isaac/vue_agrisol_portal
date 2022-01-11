@@ -17,7 +17,7 @@
         </div>
           <v-card-text>{{crop.description}}</v-card-text>
         </v-card>
-      <v-btn fab dark large bottom right color="red" to="/add-crop">
+      <v-btn fab dark large bottom right color="green" to="/add-crop">
         <v-icon>mdi-plus</v-icon>
       </v-btn>
     </v-container>

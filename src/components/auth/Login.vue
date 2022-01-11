@@ -16,11 +16,11 @@
       </v-card-text>
 
       <v-card-actions class="px-4 pb-5">
-        <v-btn type="submit" color="blue" x-large block dark>Login</v-btn>
+        <v-btn type="submit" color="green" x-large block dark>Login</v-btn>
       </v-card-actions>
       <v-card-actions>
       <v-btn
-        color="deep-blue lighten-2"
+        color="deep-green lighten-2"
         text
         @click="register()"
       >

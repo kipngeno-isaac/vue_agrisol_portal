@@ -48,9 +48,8 @@ export default {
     logout:"/auth/login",
     items: [
       { title: "Crops", icon: "mdi-view-dashboard", to: "/crops" },
-      { title: "Produce", icon: "mdi-image", to: "/produce" },
-      { title: "Prices", icon: "mdi-help-box", to: "/prices" },
       { title: "Market", icon: "mdi-help-box", to: "/market" }
+
     ]
   })
 };
